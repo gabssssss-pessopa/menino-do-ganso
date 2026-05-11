@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhs7wi0cfgitu"]
+
+[ext_resource type="Texture2D" uid="uid://cvtht84ggnyl7" path="res://arte/WhatsApp Image 2026-05-11 at 15.49.56.jpeg" id="1_i77un"]
+
+[node name="WhatsAppImage2026-05-11At15_49_56" type="Sprite2D"]
+position = Vector2(-57, -64)
+texture = ExtResource("1_i77un")
+centered = false
