@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://djro4nmrmq2uu"]
+
+[ext_resource type="Texture2D" uid="uid://b7hhoguxfkwq6" path="res://arte/WhatsApp Image 2026-05-11 at 15.49.56.jpeg" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://c0qoamfk0pa4n" path="res://arte/anda2.png" id="2_0hol4"]
+[ext_resource type="Script" uid="uid://bnlwd3sjtitrd" path="res://player.gd" id="2_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://5g7c6rdxeyxg" path="res://arte/anda1.png" id="3_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://dsf2n2ei5be0m" path="res://arte/anda3.png" id="4_kdubu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(1170, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0e48y"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0hol4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q6r6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0hol4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kdubu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epypp"]
+radius = 31.0
+height = 106.0
+
+[node name="main" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(576, 318)
+scale = Vector2(0.912698, 0.912698)
+texture = ExtResource("1_epypp")
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(580, 524)
+shape = SubResource("RectangleShape2D_wtcfe")
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(-178, 0)
+script = ExtResource("2_q6r6c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+position = Vector2(242, 471)
+scale = Vector2(0.0687964, 0.0687964)
+sprite_frames = SubResource("SpriteFrames_0e48y")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(237, 469)
+shape = SubResource("CapsuleShape2D_epypp")
